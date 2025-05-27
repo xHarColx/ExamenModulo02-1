@@ -3,6 +3,8 @@ package dao;
 import dao.exceptions.NonexistentEntityException;
 import dto.Alumnoweb;
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -160,5 +162,16 @@ public class AlumnowebJpaController implements Serializable {
             System.out.println("DEBUG: Contraseña incorrecta para el usuario: " + dni);
             return null;
         }
+    }
+    
+    public int calcularEdad(Date fecha) {
+        Calendar fechaInicial = Calendar.getInstance();
+        fechaInicial.setTime(fecha);
+        Calendar fechaActual = Calendar.getInstance();
+        int edad = fechaActual.get(Calendar.YEAR) - fechaInicial.get(Calendar.YEAR);
+        if (fechaActual.get(Calendar.DAY_OF_YEAR) < fechaInicial.get(Calendar.DAY_OF_YEAR)) {
+            edad--;
+        }
+        return edad;
     }
 }
