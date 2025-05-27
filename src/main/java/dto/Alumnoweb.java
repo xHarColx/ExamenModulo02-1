@@ -70,7 +70,7 @@ public class Alumnoweb implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "logiEstd")
-    private int logiEstd;
+    private String logiEstd;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 500)
@@ -84,7 +84,7 @@ public class Alumnoweb implements Serializable {
         this.codiEstdWeb = codiEstdWeb;
     }
 
-    public Alumnoweb(Integer codiEstdWeb, String ndniEstdWeb, String appaEstdWeb, String apmaEstdWeb, String nombEstdWeb, Date fechNaciEstdWeb, int logiEstd, String passEstd) {
+    public Alumnoweb(Integer codiEstdWeb, String ndniEstdWeb, String appaEstdWeb, String apmaEstdWeb, String nombEstdWeb, Date fechNaciEstdWeb, String logiEstd, String passEstd) {
         this.codiEstdWeb = codiEstdWeb;
         this.ndniEstdWeb = ndniEstdWeb;
         this.appaEstdWeb = appaEstdWeb;
@@ -143,11 +143,11 @@ public class Alumnoweb implements Serializable {
         this.fechNaciEstdWeb = fechNaciEstdWeb;
     }
 
-    public int getLogiEstd() {
+    public String getLogiEstd() {
         return logiEstd;
     }
 
-    public void setLogiEstd(int logiEstd) {
+    public void setLogiEstd(String logiEstd) {
         this.logiEstd = logiEstd;
     }
 
